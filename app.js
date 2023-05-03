@@ -47,10 +47,12 @@ app.get( '/posts/:id', (req, res) => {
       <link rel="stylesheet" href="/style.css"/>
     </head>
     <body>
-      <header><img src="/logo.png"/>Wizard News</header>
-      <div>
-        <h3>${post.title} by ${post.name}<h3>
-        <p>${post.content}</p>
+      <div class="news-list">
+        <header><img src="/logo.png"/>Wizard News</header>
+        <div class="news-item">
+          <h3>${post.title} by ${post.name}<h3>
+          <p>${post.content}</p>
+        </div>
       </div>
     </body>
   </html>
