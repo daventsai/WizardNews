@@ -3,6 +3,8 @@ const morgan = require('morgan');
 const postBank = require('./postBank');
 const app = express();
 
+const timeAgo = require('node-time-ago');
+
 app.use(morgan('dev'));
 app.use(express.static('public'));
 
@@ -26,7 +28,7 @@ app.get("/", (req, res) => {
             <small>(by ${post.name})</small>
           </p>
           <small class="news-info">
-            ${post.upvotes} upvotes | ${post.date}
+            ${post.upvotes} upvotes | ${timeAgo(post.date)}
           </small>
         </div>`).join('')}
       </div>
@@ -59,8 +61,8 @@ app.get( '/posts/:id', (req, res) => {
   else{
     res.send(html);
   }
-  
 });
+
 
 
 const {PORT = 1337} = process.env;
